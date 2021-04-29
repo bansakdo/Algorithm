@@ -10,13 +10,11 @@ def solution(number, k):
     number = list(number)
     for i in range(k):
         for j in range(len(number) - 1):
-            
             if number[j] == '9':
                 continue
             if number[j] == '0' or number[j] < number[j+1]:
                 number.pop(j)
                 break
-            last = j
         else:
             remain = k - i
             number = number[:-remain]
