@@ -23,6 +23,8 @@ def solution(priorities, location):
     return answer
 '''
 
+# 다른사람 풀이
+# '''
 def solution(priorities, location):
     queue = deque((i, p) for i, p in enumerate(priorities))
     answer = 0
@@ -36,7 +38,7 @@ def solution(priorities, location):
             if cur[0] == location:
                 break
     return answer
-
+# '''
 
 
 

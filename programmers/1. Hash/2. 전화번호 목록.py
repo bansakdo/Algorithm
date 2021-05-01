@@ -21,7 +21,6 @@ def solution(phone_book):
 
     return answer
 '''
-
 '''
 def solution(phone_book):
     answer = True
@@ -58,17 +57,17 @@ def solution(phone_book):
         print()
     return answer
 '''
-def solution(phoneBook):
-    phoneBook = sorted(phoneBook)
-
-    print(phoneBook)
-    print(phoneBook[1:])
-    print(zip(phoneBook, phoneBook[1:]))
-    for p1, p2 in zip(phoneBook, phoneBook[1:]):
-        print(p1, p2)
-        if p2.startswith(p1):
-            return False
-    return True
+# def solution(phoneBook):
+#     phoneBook = sorted(phoneBook)
+#
+#     print(phoneBook)
+#     print(phoneBook[1:])
+#     print(zip(phoneBook, phoneBook[1:]))
+#     for p1, p2 in zip(phoneBook, phoneBook[1:]):
+#         print(p1, p2)
+#         if p2.startswith(p1):
+#             return False
+#     return True
 
 # phone_book.sort()
 
@@ -85,6 +84,50 @@ def solution(phoneBook):
 # => return: False
 
 # 입력4.
+
+
+
+# 2회차
+'''
+def solution(phone_book):
+    answer = True
+    size = len(phone_book)
+
+    for i in range(size - 1):
+        for j in range(i+1, size):
+            length = min(len(phone_book[i]), len(phone_book[j]))
+            if phone_book[i][:length] == phone_book[j][:length]:
+                answer = False
+                return answer
+
+    return answer
+'''
+'''
+def solution(phone_book):
+    answer = True
+    phone = set(phone_book)
+    for pNum in phone_book:
+        cmp = ""
+        for p in pNum:
+            cmp += p
+            if cmp in phone and cmp != pNum:
+                answer = False
+                return answer
+
+    return answer
+'''
+
+def solution(phoneBook):
+    phoneBook = sorted(phoneBook)
+
+    for p1, p2 in zip(phoneBook, phoneBook[1:]):
+        if p2.startswith(p1):
+            return False
+    return True
+
+
+
+
 phone_book = ["123","456","789", "1235", "756"]
 # => return: False
 
