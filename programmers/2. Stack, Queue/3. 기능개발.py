@@ -20,6 +20,31 @@ def solution(progresses, speeds):
 
     return answer
 '''
+'''
+from collections import deque
+
+def solution(progresses, speeds):
+    answer = []
+    queue = deque(enumerate(progresses))
+    
+    push = 0
+    idx = 0
+    while queue:
+        now = queue.popleft()
+        if now[1] + speeds[now[0]] >= 100 and now[0] == idx:
+            idx += 1
+            push += 1
+            continue
+        else:
+            queue.append([now[0], now[1] + speeds[now[0]]])
+        if push != 0:
+            answer.append(push)
+            push = 0
+    
+    answer.append(push)
+            
+    return answer
+'''
 
 # 다른사람이 푼거
 # '''

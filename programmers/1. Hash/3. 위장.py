@@ -1,16 +1,7 @@
 
 # 3. 위장
 
-'''
 
-clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
-=> 5
-
-[["crowmask", "face"], ["bluesunglasses", "face"], ["smoky_makeup", "face"]]
-=> 3
-
-
-'''
 '''
 clothes = [["crowmask", "face"], ["bluesunglasses", "face"], ["smoky_makeup", "face"]]
 answer = 1
@@ -29,6 +20,7 @@ for x in apparel.values():
 answer -= 1
 print(answer)
 '''
+# '''
 clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
 answer = 1
 from collections import Counter
@@ -38,5 +30,9 @@ cnt = Counter([kind for name, kind in clothes])
 print(cnt)
 answer = reduce(lambda x, y: x * (y + 1), cnt.values(), 2) - 1
 print(answer)
+# clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
+# print(solution(clothes))
+
+
 
 
