@@ -1,19 +1,13 @@
 
-'''
+# ''' 내 풀이
 def solution(array, commands):
-    answer = []
-    for command in commands:
-        i, j, k = command
-        a = array[i - 1:j]
-        a.sort()
-        answer.append(a[k - 1])
+    return list(sorted(array[c[0]-1:c[1]])[c[2]-1] for c in commands)
+# '''
 
-    return answer
-'''
-
+''' 다른사람 풀이
 def solution(array, commands):
     return list(map(lambda x:sorted(array[x[0]-1:x[1]])[x[2]-1], commands))
-
+'''
 
 
 array = [1, 5, 2, 6, 3, 7, 4]
