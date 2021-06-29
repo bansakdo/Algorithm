@@ -2,7 +2,6 @@
 n = int(input())
 _parent = list(map(int, input().split()))
 delete = int(input())
-leaves = []
 Trees = [[] for _ in range(n+1)]
 root = -1
 cnt = 0
