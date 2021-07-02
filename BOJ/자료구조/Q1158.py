@@ -12,9 +12,7 @@ while arr:
     else:
         arr.append(arr.popleft())
 
-print("<", end='')
-print(str(rst)[1:-1], end='')
-print(">")
+print("<{}>".format(str(rst)[1:-1]))
 
 
 
