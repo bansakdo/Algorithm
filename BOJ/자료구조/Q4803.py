@@ -27,7 +27,7 @@ while True:
     N, M = map(int, input().split())
     if N == 0 and M == 0:
         break
-    edges = [sorted(list(map(int, input().split()))) for _ in range(M)]
+    edges = [list(map(int, input().split())) for _ in range(M)]
     visited = [False] * (N + 1)
     trees = [{} for _ in range(N+1)]
     for e in edges:
