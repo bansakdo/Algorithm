@@ -75,9 +75,9 @@ for d in input_data:
     else:
         consonant.append(d)
 
-for i in range(1, min(len(vowel) + 1, len(input_data) - 1)):
+for i in range(1, len(vowel) + 1):
     if L - i < 2:
-        continue
+        break
     v = list(combinations(vowel, i))
     c = list(combinations(consonant, L - i))
 
@@ -86,6 +86,5 @@ for i in range(1, min(len(vowel) + 1, len(input_data) - 1)):
             answer.add("".join(sorted(_v + _c)))
 
 answer = sorted(answer)
-print(len(answer))
 for a in answer:
     print(a)
