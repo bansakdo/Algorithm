@@ -1,58 +1,66 @@
 import sys
-from collections import Counter
 
-def check(r_s, r_e, c_s, c_e):
-    global rst
-    # if not reverse:
-    #     __matrix = matrix
-    # else
-    #     __matrix = r_matrix
-    for r in range(r_s, r_e + 1):
-        row = matrix[r]
-        rst = max(rst, max(Counter(row).values()))
-
-    for r in range(r_s, r_e + 1):
-        row = matrix[r]
-        rst = max(rst, max(Counter(row).values()))
-
-
-N = int(input())
-matrix = list(input() for _ in range(N))
-r_matrix = list(map(list, zip(*matrix)))
-rst = 0
-
-# print(list(Counter(matrix[0]).items()))
-
-# for r in matrix:
-#     if r.count(r[0]) == N:
-#         print(N)
-#         sys.exit()
-# for r in r_matrix:
-#     if r.count(r[0]) == N:
-#         print(N)
-#         sys.exit()
-
-print(*r_matrix)
-
+# 상 우 하 좌
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
+N = int(input())
+matrix = [list(input()) for _ in range(N)]
+rst = 0
 
-for x in range(N-1):
-    for y in range(N-1):
+for x in range(N):
+    for y in range(N):
+        std = matrix[x][y]
+
+        # 열 탐색
+        cnt = 1
+        lt, rt = y - 1, y + 1
+        while lt >= 0 and matrix[x][lt] == std:
+            cnt += 1
+            lt -= 1
+        while rt < N and matrix[x][rt] == std:
+            cnt += 1
+            rt += 1
+        rst = max(rst, cnt)
+
+        # 행 탐색
+        cnt = 1
+        lt, rt = x - 1, x + 1
+        while lt >= 0 and matrix[lt][y] == std:
+            cnt += 1
+            lt -= 1
+        while rt < N and matrix[rt][y] == std:
+            cnt += 1
+            rt += 1
+        rst = max(rst, cnt)
+
         for i in range(4):
-            n_x = x + dx[i]
-            n_y = y + dy[i]
-            if 0 <= n_x < N and 0 <= n_y < N and matrix[x][y] != matrix[n_x][n_y]:
-                matrix[x][y], matrix[n_x][n_y] = matrix[n_x][n_y], matrix[x][y]
-                # if i % 2 == 0:
-                    
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if 0 <= nx < N and 0 <= ny < N and matrix[x][y] != matrix[nx][ny]:
+                matrix[x][y], matrix[nx][ny] = matrix[nx][ny], matrix[x][y]
+                std = matrix[x][y]
+                cnt = 1
+                lt, rt = y - 1, y + 1
+                while lt >= 0 and matrix[x][lt] == std:
+                    cnt += 1
+                    lt -= 1
+                while rt < N and matrix[x][rt] == std:
+                    cnt += 1
+                    rt += 1
+                rst = max(rst, cnt)
+                cnt = 1
+                lt, rt = x - 1, x + 1
+                while lt >= 0 and matrix[lt][y] == std:
+                    cnt += 1
+                    lt -= 1
+                while rt < N and matrix[rt][y] == std:
+                    cnt += 1
+                    rt += 1
+                rst = max(rst, cnt)
+                matrix[x][y], matrix[nx][ny] = matrix[nx][ny], matrix[x][y]
 
+                if rst == N:
+                    print(rst)
+                    sys.exit()
 
-
-
-
-
-
-
-
-
+print(rst)
