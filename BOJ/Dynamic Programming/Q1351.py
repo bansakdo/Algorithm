@@ -1,6 +1,5 @@
 import sys
 
-
 def dfs(num):
     global P, Q, arr
     if num < 1:
@@ -13,8 +12,6 @@ def dfs(num):
 
 if __name__ == "__main__":
     N, P, Q = map(int, sys.stdin.readline().split())
-    cnt = 0
     arr = {}
-
 
     print(dfs(N))
