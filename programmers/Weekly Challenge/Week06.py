@@ -7,17 +7,10 @@ def solution(weights, head2head):
         match_num = len(weights) - head2head[i].count('N')
         winning_rate = win_num / match_num if match_num != 0 else 0
         heavier_winning_num = len([j for j in range(len(weights)) if weights[j] > w and head2head[i][j] == 'W'])
-        # for j, match in enumerate(head2head[i]):
-        #     if j != i and match == 'W' and w < weights[j]:
-        #         heavier_win_num += 1
-
         # 번호, 자신무게, 승리횟수, 더 무거운 선수 승리 횟수
         player.append([i+1, w, winning_rate, heavier_winning_num])
 
     player.sort(key=lambda x: [-x[2], -x[3], -x[1], [0]])
-    # answer =
-    #
-    print(player)
 
     return list(zip(*player))[0]
 
