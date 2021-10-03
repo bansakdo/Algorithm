@@ -1,5 +1,6 @@
 
 # engine_pattern = "(100~1~|01)~"       # 엔진 패턴
+
 input_string = str(input())
 
 N = len(input_string)
@@ -42,7 +43,5 @@ if isSubmarine:
     print("SUBMARINE")
 else:
     print("NOISE")
-
-
 
 
