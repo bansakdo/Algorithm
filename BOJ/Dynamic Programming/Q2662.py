@@ -15,7 +15,7 @@ for i in range(1, N + 1):
         if table[i][j] == byInvestment[i][j]:
             pos[i][j][j] = i
         else:
-            pos[i][j] = pos[i][j-1]
+            pos[i][j] = pos[i][j-1].copy()
         for k in range(1, i+1):
             if table[i][j] < table[k][j-1] + byInvestment[i-k][j]:
                 table[i][j] = table[k][j-1] + byInvestment[i-k][j]
