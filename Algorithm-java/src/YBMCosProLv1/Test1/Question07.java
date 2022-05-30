@@ -3,10 +3,11 @@ package YBMCosProLv1.Test1;
 class Question07 {
     int solution(int[] prices){
         int INF = 1000000001;
-        int tmp = INF;
-        int answer = -INF;
+        int tmp = INF;                  // 주식 산 가격
+        int answer = -INF;              // 차익
         for(int price : prices){
             if(tmp != INF)
+//                answer = Math.max(answer, tmp - price);
                 answer = Math.max(answer, price - tmp);
             tmp = Math.min(tmp, price);
         }

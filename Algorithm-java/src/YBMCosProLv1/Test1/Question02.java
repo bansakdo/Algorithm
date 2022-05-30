@@ -7,10 +7,10 @@ class Question02 {
         // Write code here.
         int answer = 0;
 
-        if (n == 1)
-            return 1;
-        else if (n == 2)
-            return 4;
+//        if (n == 1)
+//            return 1;
+//        else if (n == 2)
+//            return 4;
 
         int[] arr = new int[n];
         int[] term = new int[n-1];
@@ -27,13 +27,6 @@ class Question02 {
 
             arr[i + 1] = arr[i] + term[i];
         }
-//
-//        for (int i = 0 ; i < n ; i++)
-//            System.out.print(arr[i] + " ");
-//        System.out.println();
-//        for (int i = 0 ; i < n-1 ; i++)
-//            System.out.print(term[i] + " ");
-//        System.out.println();
 
         for (int i = 0 ; i < n ; i++)
             answer += arr[i];
