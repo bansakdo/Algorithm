@@ -4,11 +4,6 @@ import java.util.function.IntConsumer;
 
 class Question04 {
 
-    static void comb(int[] arr, boolean[] visited, int depth, int n, int r) {
-
-    }
-
-
     public int solution(int[] arr, int K) {
         // 여기에 코드를 작성해주세요.
         Arrays.sort(arr);
@@ -16,16 +11,16 @@ class Question04 {
         int[] intArr;
         ArrayList<int[]> rst = new ArrayList<>();
 
-//        for (int i = 0 ; i < arr.length - 2 ; i++) {
-//            intArr = new int[3];
-//            intArr[0] = arr[i];
-//            for (int j = i + 1; j < arr.length - 1; j++) {
-//                intArr[1] = arr[j];
-//                for (int k = j + 1; k < arr.length; k++) {
-//                    intArr[2] = arr[k];
-//                    if (Arrays.stream(intArr).sum() % K == 0) {
-//                        rst.add(intArr.clone());
-//        }   }   }   }
+        for (int i = 0 ; i < arr.length - 2 ; i++) {
+            intArr = new int[3];
+            intArr[0] = arr[i];
+            for (int j = i + 1; j < arr.length - 1; j++) {
+                intArr[1] = arr[j];
+                for (int k = j + 1; k < arr.length; k++) {
+                    intArr[2] = arr[k];
+                    if (Arrays.stream(intArr).sum() % K == 0) {
+                        rst.add(intArr.clone());
+        }   }   }   }
 
 
 
