@@ -5,7 +5,7 @@ class Question03 {
         if(oneDayPrice * multiDay <= multiDayPrice)
             return n * oneDayPrice;
         else
-            return (n % multiDay) * multiDayPrice + (n / multiDay) * oneDayPrice;
+            return (n % multiDay) * oneDayPrice + (n / multiDay) * multiDayPrice;
     }
     
     // 아래는 테스트케이스 출력을 해보기 위한 코드입니다. 아래에는 잘못된 부분이 없으니, 위의 코드만 수정하세요.
